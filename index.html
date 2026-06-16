@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trail's End Cottage — Grand Haven, Michigan</title>
+<meta name="description" content="Trail's End is a restored cottage nestled in shaded sand dunes alongside Lake Michigan. A place to slow down, open up, and settle in.">
+<meta name="theme-color" content="#1A1A1A">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Trail's End Cottage — Grand Haven, Michigan">
+<meta property="og:description" content="Trail's End is a restored cottage nestled in shaded sand dunes alongside Lake Michigan. A place to slow down, open up, and settle in.">
+<meta property="og:image" content="images/hero.jpg">
+
+<link rel="preload" as="image" href="images/hero.jpg">
+<style>
+  :root{
+    --paper:#F7F5F0;      /* warm off-white, matches binder */
+    --ink:#1A1A1A;        /* near-black */
+    --sage:#5C6B5A;       /* muted dune-sage green */
+    --warmgrey:#8A857C;   /* soft warm grey */
+    --hair:#D8D3C8;       /* hairline divider on paper */
+    --serif:Georgia,'Times New Roman',serif;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+    --maxw:1140px;
+    --gut:clamp(1.25rem,5vw,4rem);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-size:17px;line-height:1.7;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  img{display:block;max-width:100%;height:auto}
+  a{color:inherit}
+
+  /* ---------- type ---------- */
+  .serif{font-family:var(--serif)}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.12;letter-spacing:.005em}
+  .eyebrow{
+    font-family:var(--sans);font-size:.72rem;font-weight:700;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--sage);
+  }
+  .lead{font-size:clamp(1.12rem,2.2vw,1.4rem);line-height:1.6}
+  em{font-style:italic}
+
+  /* ---------- header ---------- */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(247,245,240,.88);backdrop-filter:saturate(140%) blur(8px);
+    border-bottom:1px solid var(--hair);
+  }
+  .bar{
+    max-width:var(--maxw);margin:0 auto;padding:.85rem var(--gut);
+    display:flex;align-items:center;gap:1rem;
+  }
+  .wordmark{
+    font-family:var(--sans);font-weight:700;letter-spacing:.18em;
+    font-size:.92rem;text-transform:uppercase;white-space:nowrap;text-decoration:none;
+  }
+  .bar .rule{flex:1 1 auto;height:1px;background:var(--ink);opacity:.85;margin-top:2px}
+  .nav{display:flex;gap:1.6rem}
+  .nav a{
+    font-family:var(--sans);font-size:.74rem;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;text-decoration:none;color:var(--ink);opacity:.7;
+    transition:opacity .2s;
+  }
+  .nav a:hover{opacity:1}
+  @media(max-width:720px){.nav{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;
+    background:#3a3a32 url('images/hero.jpg') center 38%/cover no-repeat;}
+  .hero::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(20,20,20,.18) 0%,rgba(20,20,20,0) 32%,rgba(20,20,20,.55) 100%);}
+  .hero-inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;width:100%;
+    padding:0 var(--gut) clamp(2.5rem,6vw,5rem);color:#fff;}
+  .hero .eyebrow{color:#fff;opacity:.92}
+  .hero h1{color:#fff;font-size:clamp(2.6rem,7vw,5rem);margin:.35rem 0 .6rem;
+    text-shadow:0 1px 30px rgba(0,0,0,.35)}
+  .hero h1 em{font-style:italic}
+  .hero p{max-width:34ch;font-size:clamp(1rem,2vw,1.18rem);text-shadow:0 1px 18px rgba(0,0,0,.4)}
+
+  /* ---------- layout primitives ---------- */
+  section{padding:clamp(3.5rem,8vw,7rem) 0}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+  .narrow{max-width:62ch}
+  .center{text-align:center;margin-left:auto;margin-right:auto}
+  .divider{height:1px;background:var(--hair);max-width:var(--maxw);margin:0 auto}
+
+  /* split: text + image */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,5vw,4.5rem);align-items:center}
+  .split.flip .col-img{order:-1}
+  .split h2{font-size:clamp(1.9rem,4vw,2.9rem);margin:.4rem 0 1rem}
+  .split p + p{margin-top:1rem}
+  .col-img img{width:100%;border-radius:2px}
+  .figcap{font-family:var(--serif);font-style:italic;color:var(--warmgrey);
+    font-size:.95rem;margin-top:.6rem;text-align:center}
+  @media(max-width:760px){
+    .split{grid-template-columns:1fr;gap:1.6rem}
+    .split.flip .col-img{order:0}
+  }
+
+  /* full-bleed image band */
+  .band{position:relative;height:clamp(320px,52vw,620px);
+    background-size:cover;background-position:center;}
+  .band .band-cap{position:absolute;left:0;right:0;bottom:0;
+    padding:clamp(1.25rem,4vw,2.5rem) var(--gut);color:#fff;
+    background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.5));}
+  .band .band-cap .inner{max-width:var(--maxw);margin:0 auto}
+  .band h2{color:#fff;font-size:clamp(1.7rem,4vw,2.8rem)}
+
+  /* intro statement */
+  .statement{text-align:center}
+  .statement .mark{width:clamp(120px,16vw,180px);margin:0 auto 1.8rem;opacity:.9}
+  .statement h2{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.25;max-width:24ch;margin:0 auto}
+  .statement p{margin-top:1.5rem}
+
+  /* details list */
+  .details{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,4vw,3rem)}
+  .details .item h3{font-size:1.15rem;margin-bottom:.4rem}
+  .details .item p{font-size:.98rem;color:#3a3a36}
+  .details .item .num{font-family:var(--serif);font-style:italic;color:var(--sage);
+    font-size:1.05rem;display:block;margin-bottom:.5rem}
+  @media(max-width:760px){.details{grid-template-columns:1fr;gap:1.6rem}}
+
+  /* quote */
+  .quote{text-align:center}
+  .quote blockquote{font-family:var(--serif);font-size:clamp(1.4rem,3.4vw,2.2rem);
+    line-height:1.4;max-width:24ch;margin:0 auto;font-style:italic}
+  .quote .by{margin-top:1.4rem;font-family:var(--sans);font-size:.78rem;font-weight:700;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--warmgrey)}
+
+  /* CTA */
+  .cta{background:var(--ink);color:var(--paper);text-align:center}
+  .cta h2{color:var(--paper);font-size:clamp(2rem,5vw,3.2rem);margin-bottom:1rem}
+  .cta p{max-width:48ch;margin:0 auto 2rem;opacity:.85}
+  .btn{display:inline-block;font-family:var(--sans);font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;font-size:.78rem;text-decoration:none;
+    padding:1rem 2.2rem;border:1px solid var(--paper);color:var(--paper);
+    border-radius:2px;transition:background .2s,color .2s}
+  .btn:hover{background:var(--paper);color:var(--ink)}
+  .btn.dark{border-color:var(--ink);color:var(--ink)}
+  .btn.dark:hover{background:var(--ink);color:var(--paper)}
+
+  /* footer */
+  footer.site{background:var(--paper);border-top:1px solid var(--hair)}
+  .foot{max-width:var(--maxw);margin:0 auto;padding:clamp(2.5rem,6vw,4rem) var(--gut);
+    display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:flex-start}
+  .foot .brand{font-family:var(--sans);font-weight:700;letter-spacing:.18em;
+    text-transform:uppercase;font-size:.92rem}
+  .foot .meta{font-size:.92rem;color:#4a463f;line-height:1.9}
+  .foot a{color:inherit;text-decoration:none;border-bottom:1px solid var(--hair)}
+  .foot a:hover{border-color:var(--ink)}
+  .colophon{border-top:1px solid var(--hair);text-align:center;
+    font-size:.74rem;letter-spacing:.06em;color:var(--warmgrey);
+    padding:1.4rem var(--gut)}
+
+  /* motion — only applies once JS adds .js-anim to <html>, so no-JS = fully visible */
+  .js-anim .reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}
+  .js-anim .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .js-anim .reveal{opacity:1;transform:none;transition:none}
+  }
+  :focus-visible{outline:2px solid var(--sage);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="bar">
+    <a href="#top" class="wordmark">Trail&rsquo;s End</a>
+    <span class="rule" aria-hidden="true"></span>
+    <nav class="nav" aria-label="Primary">
+      <a href="#home">The Cottage</a>
+      <a href="#setting">The Setting</a>
+      <a href="#stay">Your Stay</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+
+<!-- HERO -->
+<div class="hero" id="home" role="img" aria-label="Dune grass on the bluff above Lake Michigan with the cottage among the trees">
+  <div class="hero-inner">
+    <p class="eyebrow">Grand Haven, Michigan</p>
+    <h1 class="serif">Welcome to the <em>Wilderness</em></h1>
+    <p>A restored cottage nestled in shaded sand dunes alongside Lake Michigan &mdash A place to slow down, open up, and settle in.</p>
+  </div>
+</div>
+
+<!-- INTRO STATEMENT -->
+<section class="statement">
+  <div class="wrap narrow center">
+    <img class="mark" src="images/drawing.jpg" alt="Line drawing of Trail's End cottage" width="180" loading="lazy">
+    <p class="eyebrow">The Cottage</p>
+    <h2 class="serif">A family project, carefully restored and quietly modern.</h2>
+    <p class="lead">Originally built in 1976 and renewed in 2026, Trail&rsquo;s End honors its architecture and natural surroundings. Beneath a canopy of hardwoods, steps from the Lake Michigan shoreline, it&rsquo;s a home filled with history and heart.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- THE ARCHITECTURE -->
+<section>
+  <div class="wrap split flip">
+    <div class="col-text">
+      <p class="eyebrow">The Architecture</p>
+      <h2 class="serif">Three stories in the trees.</h2>
+      <p>Dark vertical siding and crisp white windows set the cottage against the green of the ravine. A wooden boardwalk carries you from the drive to the front door, through ferns and dune grass.</p>
+      <p>Inside, warm wood runs floor to ceiling &mdash; open staircases, elevated decks, and flowing transitions between levels that reward a slower pace.</p>
+    </div>
+    <div class="col-img">
+      <img src="images/exterior.jpg" alt="The dark-sided three-story cottage approached by a wooden boardwalk through the woods" loading="lazy" width="1279" height="1600">
+    </div>
+  </div>
+</section>
+
+<!-- FULL-BLEED: SUNSET -->
+<div class="band" role="img" aria-label="Lake Michigan sunset glimpsed through bare trees from the bluff"
+     style="background-image:linear-gradient(rgba(0,0,0,.05),rgba(0,0,0,.05)),url('images/sunset.jpg')" id="setting">
+  <div class="band-cap"><div class="inner">
+    <p class="eyebrow" style="color:#fff;opacity:.9">The Setting</p>
+    <h2 class="serif">Sunsets over the big lake.</h2>
+  </div></div>
+</div>
+
+<!-- THE SETTING -->
+<section>
+  <div class="wrap split">
+    <div class="col-text">
+      <p class="eyebrow">Forest &amp; Lakeshore</p>
+      <h2 class="serif">Wild, quiet, and close to the water.</h2>
+      <p>The cottage sits in a lush, natural environment shared with local wildlife &mdash; deer, turkeys, woodpeckers, and the occasional fox. Wooded trails wind from the yard toward the dunes and the public shoreline beyond.</p>
+      <p>Mornings are for coffee and birdsong; evenings for the long, golden light that pours through the trees off the lake.</p>
+    </div>
+    <div class="col-img">
+      <img src="images/stairs.jpg" alt="Warm wood interior staircase inside the cottage" loading="lazy" width="1600" height="1200">
+      <p class="figcap">Wood throughout, inside and out.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DETAILS -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow center" style="text-align:center">Thoughtfully Equipped</p>
+    <h2 class="serif center" style="text-align:center;font-size:clamp(1.8rem,4vw,2.6rem);margin:.4rem auto 2.6rem;max-width:20ch">Modern comfort, lightly worn in.</h2>
+    <div class="details">
+      <div class="item">
+        <span class="num">Fresh air &amp; efficiency</span>
+        <p>A whole-house energy recovery ventilator keeps fresh air moving while capturing energy savings, and a whole-house water filter serves every tap.</p>
+      </div>
+      <div class="item">
+        <span class="num">Peace of mind</span>
+        <p>A Generac propane generator stands ready for inclement weather, and a UniFi camera system covers the property perimeter for added security.</p>
+      </div>
+      <div class="item">
+        <span class="num">Connected, on your terms</span>
+        <p>Starlink internet is controlled here at the cottage, so the signal can be switched on or off &mdash; stay reachable, or unplug completely.</p>
+      </div>
+      <div class="item">
+        <span class="num">Sleeps six</span>
+        <p>New beds and mattresses, updated bathrooms, and modern appliances throughout &mdash; the essentials refreshed, the character preserved.</p>
+      </div>
+      <div class="item">
+        <span class="num">Sound &amp; cinema</span>
+        <p>A Sonos system plays through the living area and kitchen, with a projector tucked in the living-room cabinet for movie nights.</p>
+      </div>
+      <div class="item">
+        <span class="num">Coffee, properly</span>
+        <p>A French press, drip maker, and burr grinder are stocked and ready for a great cup on a slow morning.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote" style="padding-top:0">
+  <div class="wrap">
+    <blockquote>&ldquo;A place to slow down, open up, and settle in.&rdquo;</blockquote>
+  </div>
+</section>
+
+<!-- FULL-BLEED: BENCH DETAIL -->
+<div class="band" role="img" aria-label="A blue bench on the cottage deck"
+     style="background-image:linear-gradient(rgba(0,0,0,.05),rgba(0,0,0,.05)),url('images/bench.jpg');background-position:center 40%"></div>
+
+<!-- CTA -->
+<section class="cta" id="stay">
+  <div class="wrap narrow center">
+    <p class="eyebrow" style="color:var(--sage)">Your Stay</p>
+    <h2 class="serif">Come stay at Trail&rsquo;s End.</h2>
+    <p>The cottage is available to rent through Airbnb and Vrbo. Reach out with any questions &mdash; we&rsquo;re glad to help you plan your time on the lakeshore.</p>
+    <a class="btn" href="#contact">Inquire &amp; Book</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site" id="contact">
+  <div class="foot">
+    <div>
+      <div class="brand">Trail&rsquo;s End Cottage</div>
+      <p class="meta" style="margin-top:.6rem">Grand Haven, Michigan</p>
+    </div>
+    <div class="meta">
+      <strong>Connect</strong><br>
+      Email: <a href="hello@trailsendcottate.io">hello@trailsendcottage.io</a><br>
+      Instagram: <a href="https://instagram.com/trailsendcottage" rel="noopener">@trailsendcottage</a><br>
+    </div>
+    <div class="meta">
+      <strong>Bookings</strong><br>
+      Airbnb &amp; Vrbo<br>
+      <a href="https://www.google.com/maps/search/?api=1&query=Grand+Haven+Michigan" rel="noopener">Grand Haven, MI</a>
+    </div>
+  </div>
+  <div class="colophon">&copy; 2026 Trail&rsquo;s End Cottage &middot; trailsendcottage.io</div>
+</footer>
+
+<script>
+  // Scroll reveal — progressive enhancement. Content is visible by default;
+  // animation only engages when IntersectionObserver is available & motion allowed.
+  (function(){
+    var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    if(!('IntersectionObserver' in window)||reduce) return; // leave content fully visible
+    document.documentElement.classList.add('js-anim');
+    var els=document.querySelectorAll('.split,.statement,.details,.quote,.cta .wrap');
+    els.forEach(function(el){el.classList.add('reveal')});
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+    },{threshold:.08,rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){io.observe(el)});
+  })();
+</script>
+</body>
+</html>
