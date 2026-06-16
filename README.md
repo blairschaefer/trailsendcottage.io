@@ -57,12 +57,8 @@ The footer and page text currently reference `trailsendcottage.io` — update th
 ## Editing the site
 
 Everything lives in `index.html`. To change wording, search for the text you want to edit
-and type over it. A few common spots:
+and type over it.
 
-- **Phone number:** search for `352.448.1048` (appears in the footer link too, as `tel:+13524481048`).
-- **Instagram handle:** search for `@trailsendcottage` / `instagram.com/trailsendcottage`.
-- **Booking note:** search for "Airbnb and Vrbo" — once you have live listing links, you can
-  turn the "Inquire & Book" button into a real link by replacing `href="#contact"` with the URL.
 - **Photos:** replace any file in `images/` with a new one of the same name to swap it. Keep
   new images optimized (long edge ~1600–2000px, JPEG quality ~80) so the site stays fast.
 
